@@ -1,4 +1,6 @@
+import 'package:mmproj/constants.dart';
 import 'package:mmproj/core/utils/api_service.dart';
+import 'package:mmproj/core/utils/functions/save_books.dart';
 import 'package:mmproj/features/home/data/models/books_model/books_model.dart';
 import 'package:mmproj/features/home/domain/entities/book_entity.dart';
 
@@ -16,6 +18,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     var data = await apiService.get(
         endPoint: 'volumes?Filtering=free_ebooks&q=programming');
     List<BookEntity> books = getBooksList(data);
+
+    saveBooksData(books, kFeaturedBox);
     return books;
   }
 
