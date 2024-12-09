@@ -2,9 +2,9 @@ class BookEntity {
   final String bookId;
   final String? image;
   final String title;
-  final dynamic authorName;
+  final String authorName;
   final num? price;
-  final dynamic rating;
+  final num? rating;
 
   BookEntity({
     required this.image,
