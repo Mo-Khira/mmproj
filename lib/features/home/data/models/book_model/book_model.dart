@@ -1,9 +1,11 @@
+import 'package:mmproj/features/home/domain/entities/book_entity.dart';
+
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
 
-class BookModel {
+class BookModel extends BookEntity {
   String? kind;
   String? id;
   String? etag;
@@ -22,7 +24,16 @@ class BookModel {
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,
-  });
+  }) : super(
+          bookId: id!,
+          image: volumeInfo?.imageLinks?.thumbnail ?? "", // Not The Same Link
+          authorName: VolumeInfo.fromJson(<String, dynamic>{}).authors?.first ??
+              'author', // Not The Same
+          // authorName: VolumeInfo?.authors?.first ?? '', // Not The Same
+          price: 0.0,
+          rating: volumeInfo!.maturityRating, // Not The Same
+          title: volumeInfo.title!,
+        );
 
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
         kind: json['kind'] as String?,
