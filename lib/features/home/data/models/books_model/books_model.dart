@@ -5,7 +5,7 @@ import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
 
-class BookModel extends BookEntity {
+class BooksModel extends BookEntity {
   String? kind;
   String? id;
   String? etag;
@@ -15,7 +15,7 @@ class BookModel extends BookEntity {
   AccessInfo? accessInfo;
   SearchInfo? searchInfo;
 
-  BookModel({
+  BooksModel({
     this.kind,
     this.id,
     this.etag,
@@ -25,17 +25,15 @@ class BookModel extends BookEntity {
     this.accessInfo,
     this.searchInfo,
   }) : super(
-          bookId: id!,
-          image: volumeInfo?.imageLinks?.thumbnail ?? "", // Not The Same Link
-          authorName: VolumeInfo.fromJson(<String, dynamic>{}).authors?.first ??
-              'author', // Not The Same
-          // authorName: VolumeInfo?.authors?.first ?? '', // Not The Same
+          image: volumeInfo?.imageLinks?.thumbnail ?? "",
+          title: volumeInfo!.title!,
+          authorName: volumeInfo.authors?.first ?? "None",
           price: 0.0,
-          rating: volumeInfo!.maturityRating, // Not The Same
-          title: volumeInfo.title!,
+          rating: volumeInfo.averageRating,
+          bookId: id!,
         );
 
-  factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
+  factory BooksModel.fromJson(Map<String, dynamic> json) => BooksModel(
         kind: json['kind'] as String?,
         id: json['id'] as String?,
         etag: json['etag'] as String?,
