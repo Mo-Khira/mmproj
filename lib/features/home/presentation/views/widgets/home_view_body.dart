@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // import 'package:mmproj/core/utils/assets.dart';
 import 'package:mmproj/core/utils/styles.dart';
 import 'package:mmproj/features/home/presentation/views/widgets/best_seller_list_view.dart';
+import 'package:mmproj/features/home/presentation/views/widgets/best_seller_list_view_bloc_builder.dart';
 // import 'package:mmproj/features/home/presentation/views/widgets/best_seller_list_view_item.dart';
 import 'package:mmproj/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:mmproj/features/home/presentation/views/widgets/featured_books_list_view_bloc_builder.dart';
@@ -29,7 +30,7 @@ class HomeViewBody extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
-                  "Best Seller",
+                  "Newest Books",
                   style: Styles.textStyle18,
                 ),
               ),
@@ -43,7 +44,7 @@ class HomeViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0),
-            child: BestSellerListView(),
+            child: BestSellerListViewBlocBuilder(),
           ),
         )
       ],

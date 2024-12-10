@@ -4,10 +4,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/utils/styles.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating(
-      {super.key, this.mainAxisAlignment = MainAxisAlignment.start});
+  const BookRating({
+    super.key,
+    this.mainAxisAlignment = MainAxisAlignment.start,
+    // required this.ratingAverage,
+  });
 
   final MainAxisAlignment mainAxisAlignment;
+  // final num ratingAverage;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,7 +26,8 @@ class BookRating extends StatelessWidget {
           width: 6,
         ),
         Text(
-          "4.7",
+          // ratingAverage.toString(),
+          "4.3",
           style: Styles.textStyle16.copyWith(fontWeight: FontWeight.normal),
         ),
         const SizedBox(
