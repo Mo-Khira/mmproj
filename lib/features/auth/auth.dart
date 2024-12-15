@@ -1,6 +1,9 @@
 // // ignore_for_file: prefer_final_fields, unused_field
 
 // import 'package:flutter/material.dart';
+// import 'package:go_router/go_router.dart';
+// import 'package:mmproj/core/utils/app_router.dart';
+// import 'package:mmproj/core/utils/styles.dart';
 // import 'package:mmproj/features/home/presentation/views/home_view.dart';
 
 // import '../../constants.dart';
@@ -50,10 +53,7 @@
 //                           // left: MediaQuery.of(context).size.width / 2 - 60,
 //                           child: Text(
 //                             'Sign Up',
-//                             style: TextStyle(
-//                               fontSize: 30,
-//                               fontWeight: FontWeight.bold,
-//                             ),
+//                             style: Styles.textStyle30,
 //                           ),
 //                         ),
 //                         Positioned(
@@ -83,7 +83,8 @@
 //                                 //     onPressed: () {},
 //                                 //     icon: Icon(Icons.remove_red_eye_outlined)),
 //                                 border: OutlineInputBorder(
-//                                   borderSide: const BorderSide(color: Colors.blue),
+//                                   borderSide:
+//                                       const BorderSide(color: Colors.blue),
 //                                   borderRadius: BorderRadius.circular(20),
 //                                 ),
 //                                 labelText: 'Email',
@@ -108,10 +109,12 @@
 //                               decoration: InputDecoration(
 //                                 suffixIcon: IconButton(
 //                                   onPressed: () {},
-//                                   icon: const Icon(Icons.remove_red_eye_outlined),
+//                                   icon:
+//                                       const Icon(Icons.remove_red_eye_outlined),
 //                                 ),
 //                                 border: OutlineInputBorder(
-//                                   borderSide: const BorderSide(color: Colors.blue),
+//                                   borderSide:
+//                                       const BorderSide(color: Colors.blue),
 //                                   borderRadius: BorderRadius.circular(20),
 //                                 ),
 //                                 labelText: 'Enter password',
@@ -136,9 +139,11 @@
 //                               decoration: InputDecoration(
 //                                 suffixIcon: IconButton(
 //                                     onPressed: () {},
-//                                     icon: const Icon(Icons.remove_red_eye_outlined)),
+//                                     icon: const Icon(
+//                                         Icons.remove_red_eye_outlined)),
 //                                 border: OutlineInputBorder(
-//                                   borderSide: const BorderSide(color: Colors.blue),
+//                                   borderSide:
+//                                       const BorderSide(color: Colors.blue),
 //                                   borderRadius: BorderRadius.circular(20),
 //                                 ),
 //                                 labelText: 'Enter confirm password',
@@ -187,11 +192,7 @@
 //                           ),
 //                           MaterialButton(
 //                             onPressed: () {
-//                               Navigator.of(context).push(
-//                                 MaterialPageRoute(
-//                                   builder: (context) => const HomeView(),
-//                                 ),
-//                               );
+//                               GoRouter.of(context).push(AppRouter.kHomeView);
 //                             },
 //                             child: Container(
 //                               height: 40,
@@ -205,8 +206,8 @@
 //                                     begin: Alignment.topRight,
 //                                     end: Alignment.bottomLeft,
 //                                   ),
-//                                   borderRadius:
-//                                       const BorderRadius.all(Radius.circular(30))),
+//                                   borderRadius: const BorderRadius.all(
+//                                       Radius.circular(30))),
 //                               child: const Center(
 //                                 child: Text(
 //                                   'Sign Up',

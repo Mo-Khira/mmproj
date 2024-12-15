@@ -20,7 +20,7 @@ class BestSellerListView extends StatelessWidget {
             image: books[index].image ?? 'None',
             authorName: books[index].authorName,
             title: books[index].title,
-            // ratingAverage: books[index].rating as num,
+            ratingAverage: books[index].rating ?? 0.0,
             price: books[index].price ?? 0.0,
             id: books[index].bookId,
           ),

@@ -5,28 +5,41 @@ import 'package:mmproj/features/home/presentation/views/widgets/books_action.dar
 import 'package:mmproj/features/home/presentation/views/widgets/custom_book_image.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
+  const BookDetailsSection(
+      {super.key,
+      required this.image,
+      this.title,
+      this.authorName,
+      this.ratingAverage});
 
+  final String? image;
+  final String? title;
+  final String? authorName;
+  final num? ratingAverage;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: width * 0.20,
           ),
-          child: const CustomBookImage(
-            image: '',
+          child: CustomBookImage(
+            image: image!,
           ),
         ),
         const SizedBox(
           height: 40,
         ),
-        const Text(
-          "The Jungle Book",
-          style: Styles.textStyle30,
+        Center(
+          child: Text(
+            textAlign: TextAlign.center,
+            title!,
+            style: Styles.textStyle30,
+          ),
         ),
         const SizedBox(
           height: 6,
@@ -34,7 +47,7 @@ class BookDetailsSection extends StatelessWidget {
         Opacity(
           opacity: 0.7,
           child: Text(
-            "Rudyard Kipling",
+            authorName!,
             style: Styles.textStyle18.copyWith(
               fontWeight: FontWeight.w300,
               fontStyle: FontStyle.italic,
@@ -44,9 +57,9 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 18,
         ),
-        const BookRating(
+        BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
-          // ratingAverage: 0.0,
+          ratingAverage: ratingAverage ?? 0.0,
         ),
         const SizedBox(
           height: 35,

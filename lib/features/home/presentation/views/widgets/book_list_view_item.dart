@@ -12,7 +12,7 @@ class BookListViewItem extends StatelessWidget {
       required this.image,
       required this.authorName,
       required this.title,
-      // required this.ratingAverage,
+      required this.ratingAverage,
       required this.price,
       required this.id});
 
@@ -20,13 +20,22 @@ class BookListViewItem extends StatelessWidget {
   final String image;
   final String authorName;
   final String title;
-  // final num ratingAverage;
+  final num ratingAverage;
   final num price;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        // GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        GoRouter.of(context).push(
+          AppRouter.kBookDetailsView,
+          extra: {
+            "image": image,
+            "authorName": authorName,
+            "title": title,
+            "rate": ratingAverage,
+          },
+        );
       },
       child: SizedBox(
         height: 130,
@@ -76,9 +85,9 @@ class BookListViewItem extends StatelessWidget {
                         style: Styles.textStyle20
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
-                      const BookRating(
-                          // ratingAverage: ratingAverage,
-                          ),
+                      BookRating(
+                        ratingAverage: ratingAverage,
+                      ),
                     ],
                   ),
                 ],
